@@ -185,25 +185,60 @@ export default function QainexWebsite() {
                 </motion.div>
               </motion.div>
 
-              {/* Stats actualizadas para empresa nueva */}
-              <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-12">
-                {[
-                  { value: "3+", label: "Proyectos Completados" },
-                  { value: "100%", label: "Satisfacción Cliente" },
-                  { value: "6 meses", label: "En el Mercado" },
-                  { value: "24/7", label: "Soporte Dedicado" },
-                ].map((stat, index) => (
+              {/* Información relevante en lugar de estadísticas */}
+              <motion.div variants={fadeInUp} className="max-w-5xl mx-auto pt-12">
+                <div className="grid gap-8 md:grid-cols-3 text-center">
                   <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                    className="text-center backdrop-blur-sm bg-black/20 rounded-2xl p-6 border border-slate-800/50"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1 }}
+                    className="space-y-4"
                   >
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-2">{stat.value}</div>
-                    <div className="text-sm text-slate-400">{stat.label}</div>
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-blue-500/25">
+                      <Brain className="h-8 w-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-2">IA Avanzada</h3>
+                      <p className="text-sm text-slate-400 leading-relaxed">
+                        Algoritmos de última generación para resolver problemas complejos
+                      </p>
+                    </div>
                   </motion.div>
-                ))}
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.2 }}
+                    className="space-y-4"
+                  >
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-purple-500/25">
+                      <Target className="h-8 w-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-2">Enfoque Científico</h3>
+                      <p className="text-sm text-slate-400 leading-relaxed">
+                        Metodología rigurosa basada en matemáticas y análisis de datos
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.4 }}
+                    className="space-y-4"
+                  >
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-green-500/25">
+                      <Zap className="h-8 w-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-2">Soluciones Personalizadas</h3>
+                      <p className="text-sm text-slate-400 leading-relaxed">
+                        Cada proyecto diseñado específicamente para tus necesidades
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
               </motion.div>
 
               {/* Scroll Indicator */}
@@ -612,24 +647,26 @@ export default function QainexWebsite() {
                         <p className="text-slate-400 text-lg">AI SOLUTIONS</p>
                       </div>
                       <div className="space-y-6">
-                        {[
-                          { value: "3+", label: "Proyectos Activos", color: "blue" },
-                          { value: "100%", label: "Satisfacción Cliente", color: "purple" },
-                          { value: "6 meses", label: "En el Mercado", color: "green" },
-                        ].map((stat, index) => (
-                          <motion.div
-                            key={stat.label}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            whileHover={{ scale: 1.05 }}
-                            viewport={{ once: true }}
-                            className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-6 shadow-lg backdrop-blur-sm border border-slate-700/50"
-                          >
-                            <div className={`text-3xl font-bold text-${stat.color}-400 mb-2`}>{stat.value}</div>
-                            <div className="text-sm text-slate-400">{stat.label}</div>
-                          </motion.div>
-                        ))}
+                        <div className="space-y-6">
+                          {[
+                            { value: "Consulta Gratuita", label: "Primera reunión sin costo", color: "blue" },
+                            { value: "Soporte Completo", label: "Acompañamiento en todo el proceso", color: "purple" },
+                            { value: "Resultados Medibles", label: "ROI comprobado y métricas claras", color: "green" },
+                          ].map((item, index) => (
+                            <motion.div
+                              key={item.label}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.5, delay: index * 0.1 }}
+                              whileHover={{ scale: 1.05 }}
+                              viewport={{ once: true }}
+                              className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-6 shadow-lg backdrop-blur-sm border border-slate-700/50"
+                            >
+                              <div className={`text-lg font-bold text-${item.color}-400 mb-2`}>{item.value}</div>
+                              <div className="text-sm text-slate-400">{item.label}</div>
+                            </motion.div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
